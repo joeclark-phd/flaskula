@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+      <title>Flaskula - {% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+  
+      {% for message in get_flashed_messages() %}
+        <div><strong>{{ message }}</strong></div>
+      {% endfor %}
+  
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>
