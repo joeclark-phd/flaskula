@@ -7,7 +7,7 @@ class Role(db.Model):
     name = db.Column(db.String(64), unique=True)
     users = db.relationship('User', backref='role')
     def __repr__(self):
-        return '<Role %r>' % self.name
+        return '<Role: %r>' % self.name
         
 class User(db.Model):
     __tablename__ = 'users'
@@ -15,6 +15,6 @@ class User(db.Model):
     username = db.Column(db.String(64), unique=True, index=True)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User: %r>' % self.username
 
         

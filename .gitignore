@@ -9,3 +9,5 @@ venv/
 # Database
 *.sqlite
 
+# Heroku
+.env
