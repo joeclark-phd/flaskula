@@ -26,11 +26,12 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_USERNAME = "user" #os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = "password" #os.environ.get('MAIL_PASSWORD')
     FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
     FLASKULA_MAIL_SENDER = 'Flaskula Admin <flaskula@example.com>'
     FLASKULA_ADMIN = os.environ.get('FLASKULA_ADMIN')
+    SSL_DISABLE = True # for all except Heroku
     
     @staticmethod
     def init_app(app):
@@ -51,11 +52,17 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
+class HerokuConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+    SSL_DISABLE = bool(os.environ.get('SSL_DISABLE')) # on heroku, use SSL
+
         
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
+    'heroku': HerokuConfig,
     'default': DevelopmentConfig    # default
 }
     

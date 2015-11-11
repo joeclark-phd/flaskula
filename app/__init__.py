@@ -26,6 +26,12 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)   # what does this line do?
     
+    # when on Heroku, force SSL mode
+    if not app.debug and not app.testing and not app.config['SSL_DISABLE']:
+        from flask.ext.sslify import SSLify
+        sslify = SSLify(app)
+    
+    
     #bootstrap.init_app(app)
     mail.init_app(app)
     #moment.init_app(app)
