@@ -4,6 +4,8 @@ Which one gets used will depend on the environment; in this way
 we can use the same code without modification in each place.
 
 What's left up to environment variables?
+MAIL_USERNAME
+MAIL_PASSWORD
 SECRET_KEY
 DATABASE_URL
 DEV_DATABASE_URL
@@ -21,13 +23,20 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # This is deprecated, but I don't
                                             # know if turning it off will break
                                             # anything. Let's see.
-
-    # omitted email configs b/c I don't care to test email
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
+    FLASKULA_MAIL_SENDER = 'Flaskula Admin <flaskula@example.com>'
+    FLASKULA_ADMIN = os.environ.get('FLASKULA_ADMIN')
+    
     @staticmethod
     def init_app(app):
-        """I wonder what this is for"""
         pass
         
+
 class DevelopmentConfig(Config):
     #DEBUG = True #This setting breaks the application on my windows box
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
