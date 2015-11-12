@@ -23,13 +23,9 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # This is deprecated, but I don't
                                             # know if turning it off will break
                                             # anything. Let's see.
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = "user" #os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = "password" #os.environ.get('MAIL_PASSWORD')
+    PYSTMARK_API_KEY = os.environ.get('POSTMARK_API_KEY')
+    PYSTMARK_DEFAULT_SENDER = os.environ.get('PYSTMARK_DEFAULT_SENDER')
     FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
-    FLASKULA_MAIL_SENDER = 'Flaskula Admin <flaskula@example.com>'
     FLASKULA_ADMIN = os.environ.get('FLASKULA_ADMIN')
     SSL_DISABLE = True # for all except Heroku
     

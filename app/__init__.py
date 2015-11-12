@@ -9,15 +9,17 @@ As an __init__.py file, it makes the 'app' directory a Python "package".
 
 from flask import Flask, render_template
 #from flask.ext.bootstrap import Bootstrap
-from flask.ext.mail import Mail
+#from flask.ext.mail import Mail
 #from flask.ext.moment import Moment
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.pystmark import Pystmark
 from config import config
 
 #bootstrap = Bootstrap()
-mail = Mail()
+#mail = Mail()
 #moment = Moment()
 db = SQLAlchemy()
+pystmark = Pystmark()
 
 
 
@@ -33,9 +35,10 @@ def create_app(config_name):
     
     
     #bootstrap.init_app(app)
-    mail.init_app(app)
+    #mail.init_app(app)
     #moment.init_app(app)
     db.init_app(app)
+    pystmark = Pystmark(app)
     
     #attach routes and custom error messages here
     from .main import main as main_blueprint

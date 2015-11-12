@@ -14,8 +14,9 @@ def index():
             user = User(username = form.name.data)
             db.session.add(user)  # looks like you don't need a 'commit'?
             session['known'] = False
-            #if current_app.config['FLASKULA_ADMIN']:  # doesn't work; gmail rejects
-                #send_email(current_app.config['FLASKULA_ADMIN'], 'New User', 'mail/new_user', user=user)
+            if current_app.config['FLASKULA_ADMIN']:
+                pass
+                send_email(current_app.config['FLASKULA_ADMIN'], 'New User', 'mail/new_user', user=user)
         else:
             session['known'] = True
         session['name'] = form.name.data
