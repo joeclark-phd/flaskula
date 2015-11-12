@@ -1,6 +1,6 @@
 #Flaskula
 
-![build status](https://travis-ci.org/joeclark-phd/flaskula.svg?branch=master)
+[![build status](https://travis-ci.org/joeclark-phd/flaskula.svg?branch=master)](https://travis-ci.org/joeclark-phd/flaskula)
 
 This is an app that I have created by following the tutorial in Miguel 
 Grinberg's "Flask Web Development" book.  It has been modified to work on 
