@@ -19,7 +19,7 @@ This requires certain environment variables to be set.  So far these include:
 Python 3 seems to be necessary for database *write* on Heroku.  Everything else
 including database *read* seems to work with Python 2 as well.  YMMV.
 
-Python dependencies are stored in requirements.txt.  I advise you to use a 
+Python dependencies are stored in `requirements.txt`.  I advise you to use a 
 Python virtual environment. You can install all the dependencies in one step 
 like so:
 
@@ -34,7 +34,7 @@ like so:
 2. `git clone`, make any changes, `git commit`
 3. `heroku create`
 4. In Heroku, provision a PostgreSQL database and the 
-     Postmark](https://postmarkapp.com) add-on.
+     [Postmark](https://postmarkapp.com) add-on.
 5. Make sure the necessary environment variables are set:
   - `DATABASE_URL`: Heroku provides this for its PostgreSQL add-on 
     automatically; if not found (i.e. on your development machine) the app 
@@ -60,6 +60,9 @@ like so:
 3. `python manage.py runserver`
 
 ###To *simulate Heroku* on my Windows machine:
+
+I don't recommend this because you don't get error messages that are quite as
+helpful.  But this is possible.
 
 1. Set environment variables in a `.env` file. (`.gitignore` keeps it private)
 2. `heroku local run python manage.py deploy`
