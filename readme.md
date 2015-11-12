@@ -9,11 +9,6 @@ Tag "ch7" is the version you need if you want to jump into Part II of the
 book.  It may be a useful starter template for other Flask applications to
 be deployed on Heroku, too.
 
-## Environment variables
-
-This requires certain environment variables to be set.  So far these include:
-
-
 ## Requirements
 
 Python 3 seems to be necessary for database *write* on Heroku.  Everything else
@@ -68,3 +63,9 @@ helpful.  But this is possible.
 2. `heroku local run python manage.py deploy`
 3. `heroku local -f Procfile.windows`
 
+
+##To test
+
+    python manage.py test
+    
+    
