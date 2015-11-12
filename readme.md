@@ -1,5 +1,7 @@
 #Flaskula
 
+![build status](https://travis-ci.org/joeclark-phd/flaskula.svg?branch=master)
+
 This is an app that I have created by following the tutorial in Miguel 
 Grinberg's "Flask Web Development" book.  It has been modified to work on 
 Heroku and to send e-mail via the [Postmark](https://postmarkapp.com) add-on 
