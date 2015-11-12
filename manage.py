@@ -31,8 +31,11 @@ def test():
 def deploy():
     """Run deployment tasks."""
     from flask.ext.migrate import upgrade
-    #migrate database to latest revision
+    # migrate database to latest revision
     upgrade()
+    # create user roles
+    Role.insert_roles()
+    
     
 
 if __name__ == "__main__":
