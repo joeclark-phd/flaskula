@@ -33,6 +33,7 @@ like so:
 4. In Heroku, provision a PostgreSQL database and the 
      [Postmark](https://postmarkapp.com) add-on.
 5. Make sure the necessary environment variables are set:
+  - `SECRET_KEY`
   - `DATABASE_URL`: Heroku provides this for its PostgreSQL add-on 
     automatically; if not found (i.e. on your development machine) the app 
     will just use a SQLite database, and that's fine.
