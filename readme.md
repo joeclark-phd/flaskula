@@ -50,6 +50,11 @@ like so:
 7. `heroku run python manage.py deploy` -- this should create the database
     tables.
     
+If you get into trouble upgrading the database, go into Postgres and drop
+all tables, *especially* the table called `alembic_version`, and issue the
+deploy command again.  That re-creates the database from scratch (all
+migrations, not just the one you just did).
+    
 ###To make it work on my Windows development machine:
 
 1. Set environment variables accordingly (one way to do this is to modify

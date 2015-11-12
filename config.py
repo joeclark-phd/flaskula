@@ -35,7 +35,9 @@ class Config:
         
 
 class DevelopmentConfig(Config):
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = True  # necessary, I think, for
+                                           # auto-generating db migrations
+                                           
     #DEBUG = True #This setting breaks the application on my windows box
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
