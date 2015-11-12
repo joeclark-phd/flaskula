@@ -27,6 +27,7 @@ class Config:
     PYSTMARK_DEFAULT_SENDER = os.environ.get('PYSTMARK_DEFAULT_SENDER')
     FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
     FLASKULA_ADMIN = os.environ.get('FLASKULA_ADMIN')
+    FLASKULA_POSTS_PER_PAGE = 20
     SSL_DISABLE = True # for all except Heroku
     
     @staticmethod
