@@ -51,9 +51,14 @@ def create_app(config_name):
     #attach main routes and error messages
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
     #authentication-related routes
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
+    
+    #api version 1
+    from .api_1 import api as api_1_blueprint
+    app.register_blueprint(api_1_blueprint, url_prefix="/api/v1")
     
 
     
