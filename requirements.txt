@@ -23,6 +23,7 @@ alembic==0.8.3
 bleach==1.4.2
 blinker==1.4
 colorama==0.3.3
+coverage==4.0.2
 dominate==2.1.16
 gunicorn==19.3.0
 html5lib==0.9999999
@@ -32,5 +33,6 @@ psycopg2==2.6.1
 pystmark==0.4.5
 python-editor==0.4
 requests==2.8.1
+selenium==2.48.0
 six==1.10.0
 visitor==0.1.2
