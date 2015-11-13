@@ -28,6 +28,7 @@ class Config:
     FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
     FLASKULA_ADMIN = os.environ.get('FLASKULA_ADMIN')
     FLASKULA_POSTS_PER_PAGE = 20
+    FLASKULA_FOLLOWERS_PER_PAGE = 20
     SSL_DISABLE = True # for all except Heroku
     
     @staticmethod
