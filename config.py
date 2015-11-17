@@ -30,6 +30,10 @@ class Config:
     FLASKULA_POSTS_PER_PAGE = 20
     FLASKULA_FOLLOWERS_PER_PAGE = 50
     FLASKULA_COMMENTS_PER_PAGE = 30
+    
+    SQLALCHEMY_RECORD_QUERIES = True
+    FLASKULA_SLOW_DB_QUERY_TIME = 0.5
+    
     SSL_DISABLE = True # for all except Heroku
     
     @staticmethod
