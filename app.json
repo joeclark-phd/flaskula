@@ -8,7 +8,7 @@
   },
   "env": {
     "FLASK_CONFIG": {
-      "description": "Tells the app which configuration to use (dev, test, or production)",
+      "description": "Tells the app which configuration to use (dev, test, or 'heroku')",
       "value": "heroku"
     },
     "SECRET_KEY": {
@@ -25,7 +25,7 @@
     }
   },
   "addons": [
-      "heroku-postgresql:dev",
+      "heroku-postgresql:hobby-dev",
       "postmark:10k"
   ]
 }
