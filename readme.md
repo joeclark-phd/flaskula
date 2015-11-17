@@ -31,7 +31,9 @@ like so:
 
 ###Easy mode:
 
-1. Click this: [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+1. Click this: 
+    
+    [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
    
 ###To set it up manually on Heroku:
 
