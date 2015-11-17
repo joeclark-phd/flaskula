@@ -1,0 +1,31 @@
+{
+  "name": "Flaskula",
+  "description": "Like Miguel Grinberg's tutorial app, Flasky, but for Heroku",
+  "keywords": [ "flask", "tutorial", "microblog" ],
+  "repository": "https://github.com/joeclark-phd/flaskula",
+  "scripts": {
+    "postdeploy": "python manage.py deploy"
+  },
+  "env": {
+    "FLASK_CONFIG": {
+      "description": "Tells the app which configuration to use (dev, test, or production)",
+      "value": "heroku"
+    },
+    "SECRET_KEY": {
+      "description": "Secret key for verifying integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "FLASKULA_ADMIN": {
+      "description": "'To' address for administrative alerts.",
+      "value": "webmaster@example.com"
+    },
+    "PYSTMARK_DEFAULT_SENDER": {
+      "description": "'From' address for transactional e-mails to users.",
+      "value": "webmaster@example.com"
+    }
+  },
+  "addons": [
+      "heroku-postgresql:dev",
+      "postmark:10k"
+  ]
+}
