@@ -20,9 +20,12 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'something they wont guess'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
-    SQLALCHEMY_TRACK_MODIFICATIONS = False  # This is deprecated, but I don't
-                                            # know if turning it off will break
-                                            # anything. Let's see.
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  # This needs to be True in order
+                                            # to reliably generate "migration"
+                                            # scripts, but it is deprecated
+                                            # and throws a warning message.
+                                            # I turn it on for the development
+                                            # environment only; see below.
     PYSTMARK_API_KEY = os.environ.get('POSTMARK_API_KEY')
     PYSTMARK_DEFAULT_SENDER = os.environ.get('PYSTMARK_DEFAULT_SENDER')
     FLASKULA_MAIL_SUBJECT_PREFIX = '[Flaskula]'
@@ -45,7 +48,9 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = True  # necessary, I think, for
                                            # auto-generating db migrations
                                            
-    #DEBUG = True #This setting breaks the application on my windows box
+    #DEBUG = True # Grinberg's book wants you to set this True, but it
+                  # breaks the application on my Windows box.  We'll just
+                  # have to live with less debugging information.
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
         
